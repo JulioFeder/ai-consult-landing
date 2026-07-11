@@ -1,0 +1,63 @@
+# AI Consult — Landing Page
+
+Landing page estática para consultoria em IA (pt-BR). HTML/CSS/JS puro, sem build step, pronta para publicar no GitHub Pages.
+
+## Estrutura
+
+```
+index.html            página principal
+assets/style.css       estilos
+assets/script.js       animação das barras + envio do formulário de contato
+.github/workflows/deploy.yml   publica no GitHub Pages a cada push na main
+```
+
+## Rodando localmente
+
+Não precisa de servidor: abra `index.html` direto no navegador, ou sirva a pasta com qualquer servidor estático (ex: extensão "Live Server" do VS Code).
+
+## Antes de publicar — preencher os placeholders
+
+Procure por estes marcadores em `index.html` e troque pelos seus dados reais:
+
+- `[Seu Nome]` — nome do consultor/empresa (aparece no header e no footer)
+- `[Ano]` — ano atual no footer
+- `[seu-email@exemplo.com]` / `[LinkedIn]` — footer
+- `R$ [valor]` — os 4 cartões de preço em `#pacotes`
+- `5500000000000` no link do WhatsApp — troque pelo seu número, formato `55DDDNÚMERO` sem símbolos
+
+## Configurar o formulário de contato (Formspree)
+
+O formulário em `#contato` envia via AJAX para o Formspree. Para ativar:
+
+1. Crie uma conta gratuita em https://formspree.io
+2. Crie um novo formulário e copie o ID gerado (algo como `xayzabcd`)
+3. Em `index.html`, troque `YOUR_FORM_ID` na tag `<form action="https://formspree.io/f/YOUR_FORM_ID" ...>` pelo ID copiado
+4. Confirme seu e-mail quando o Formspree pedir — sem isso as submissões não chegam
+
+## Publicando no GitHub Pages
+
+Este projeto ainda não é um repositório git. Como `git` e `gh` (GitHub CLI) não estão instalados nesta máquina, os passos abaixo são manuais:
+
+1. Instale o Git: https://git-scm.com/downloads
+2. Nesta pasta, rode:
+   ```
+   git init
+   git add .
+   git commit -m "Landing page inicial"
+   ```
+3. Crie um repositório novo no GitHub (via https://github.com/new, público — GitHub Pages gratuito exige repositório público em contas free)
+4. Conecte e envie:
+   ```
+   git branch -M main
+   git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+   git push -u origin main
+   ```
+5. No GitHub, vá em **Settings → Pages** e em "Build and deployment" selecione **Source: GitHub Actions** (o workflow em `.github/workflows/deploy.yml` já está pronto e roda automaticamente a cada push na `main`)
+6. Após alguns segundos o site fica disponível em `https://SEU_USUARIO.github.io/SEU_REPOSITORIO/`
+
+## Próximos passos sugeridos
+
+- Preencher os placeholders com os dados reais do negócio
+- Configurar o Formspree
+- Rodar `git init` / criar o repositório e publicar
+- Opcional: apontar um domínio próprio em Settings → Pages → Custom domain
