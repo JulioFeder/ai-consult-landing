@@ -1,61 +1,48 @@
-# AI Consult — Landing Page
+# AI Consult — Landing Page (Prism AI)
 
-Landing page estática para consultoria em IA (pt-BR). HTML/CSS/JS puro, sem build step, pronta para publicar no GitHub Pages.
+Landing page estática para a Prism AI, consultoria em IA (pt-BR). HTML/CSS/JS puro, sem build step.
+
+Site no ar: https://prismconsultoria.com.br (aponta para https://juliofeder.github.io/ai-consult-landing/ via GitHub Pages)
+Repositório: https://github.com/JulioFeder/ai-consult-landing
 
 ## Estrutura
 
 ```
-index.html            página principal
-assets/style.css       estilos
-assets/script.js       animação das barras + envio do formulário de contato
-.github/workflows/deploy.yml   publica no GitHub Pages a cada push na main
+index.html                      página principal
+assets/style.css                estilos (tema claro/escuro via variáveis CSS)
+assets/script.js                animação das barras, toggle de tema e envio do formulário
+assets/img/                     logo (versões clara/escura/original)
+.github/workflows/deploy.yml    publica no GitHub Pages a cada push na main
 ```
 
 ## Rodando localmente
 
 Não precisa de servidor: abra `index.html` direto no navegador, ou sirva a pasta com qualquer servidor estático (ex: extensão "Live Server" do VS Code).
 
-## Antes de publicar — preencher os placeholders
+## Publicando alterações
 
-Procure por estes marcadores em `index.html` e troque pelos seus dados reais:
+O repositório já está configurado e conectado ao GitHub Pages. Qualquer alteração só precisa ser commitada e enviada:
+
+```
+git add .
+git commit -m "sua mensagem"
+git push
+```
+
+O GitHub Actions publica automaticamente em ~15-20 segundos após o push.
+
+## Formulário de contato (Formspree)
+
+Já configurado — envios em `#contato` vão para o formulário `xaqgrrej` no Formspree, via AJAX (sem sair da página).
+
+## Placeholders que ainda faltam preencher
+
+Procure por estes marcadores em `index.html` e troque pelos dados reais:
 
 - `[seu-email@exemplo.com]` / `[LinkedIn]` — footer
 - `R$ [valor]` — os 4 cartões de preço em `#pacotes`
-- `5500000000000` no link do WhatsApp — troque pelo seu número, formato `55DDDNÚMERO` sem símbolos
+- `5500000000000` no link do WhatsApp — troque pelo número real, formato `55DDDNÚMERO` sem símbolos
 
-## Configurar o formulário de contato (Formspree)
+## Domínio próprio
 
-O formulário em `#contato` envia via AJAX para o Formspree. Para ativar:
-
-1. Crie uma conta gratuita em https://formspree.io
-2. Crie um novo formulário e copie o ID gerado (algo como `xayzabcd`)
-3. Em `index.html`, troque `YOUR_FORM_ID` na tag `<form action="https://formspree.io/f/YOUR_FORM_ID" ...>` pelo ID copiado
-4. Confirme seu e-mail quando o Formspree pedir — sem isso as submissões não chegam
-
-## Publicando no GitHub Pages
-
-Este projeto ainda não é um repositório git. Como `git` e `gh` (GitHub CLI) não estão instalados nesta máquina, os passos abaixo são manuais:
-
-1. Instale o Git: https://git-scm.com/downloads
-2. Nesta pasta, rode:
-   ```
-   git init
-   git add .
-   git commit -m "Landing page inicial"
-   ```
-3. Crie um repositório novo no GitHub (via https://github.com/new, público — GitHub Pages gratuito exige repositório público em contas free)
-4. Conecte e envie:
-   ```
-   git branch -M main
-   git remote add origin https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-   git push -u origin main
-   ```
-5. No GitHub, vá em **Settings → Pages** e em "Build and deployment" selecione **Source: GitHub Actions** (o workflow em `.github/workflows/deploy.yml` já está pronto e roda automaticamente a cada push na `main`)
-6. Após alguns segundos o site fica disponível em `https://SEU_USUARIO.github.io/SEU_REPOSITORIO/`
-
-## Próximos passos sugeridos
-
-- Preencher os placeholders com os dados reais do negócio
-- Configurar o Formspree
-- Rodar `git init` / criar o repositório e publicar
-- Opcional: apontar um domínio próprio em Settings → Pages → Custom domain
+Domínio `prismconsultoria.com.br` registrado no Registro.br, com DNS apontando para o GitHub Pages (registros A + CNAME `www`). A propagação ainda está em andamento — por isso o arquivo `CNAME` e o domínio customizado nas configurações do Pages foram temporariamente removidos (evita redirecionar para um domínio que ainda não resolve). Assim que o DNS propagar, basta recriar o arquivo `CNAME` com `prismconsultoria.com.br` e reconfigurar o domínio custom no Pages; o GitHub emite o certificado HTTPS automaticamente.
