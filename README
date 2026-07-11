@@ -39,7 +39,7 @@ Já configurado — envios em `#contato` vão para o formulário `xlgyqqbn` no F
 
 Procure por estes marcadores em `index.html` e troque pelos dados reais:
 
-- `[seu-email@exemplo.com]` / `[LinkedIn]` — footer
+- `[LinkedIn]` — footer
 - `R$ [valor]` — os 4 cartões de preço em `#pacotes`
 - `5500000000000` no link do WhatsApp — troque pelo número real, formato `55DDDNÚMERO` sem símbolos
 
