@@ -1,3 +1,21 @@
+// Alternância de modo claro/escuro, com preferência salva no navegador
+const themeToggle = document.getElementById('themeToggle');
+const htmlEl = document.documentElement;
+
+function currentTheme(){
+  return htmlEl.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+}
+
+themeToggle.setAttribute('aria-pressed', String(currentTheme() === 'dark'));
+
+themeToggle.addEventListener('click', () => {
+  const next = currentTheme() === 'dark' ? 'light' : 'dark';
+  htmlEl.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  themeToggle.setAttribute('aria-pressed', String(next === 'dark'));
+  themeToggle.setAttribute('aria-label', next === 'dark' ? 'Alternar para modo claro' : 'Alternar para modo escuro');
+});
+
 // Anima as barras de comparação quando o cartão entra em vista
 const card = document.getElementById('timeCard');
 const fills = card.querySelectorAll('.bar-fill');
