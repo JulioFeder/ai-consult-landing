@@ -19,7 +19,6 @@ Não precisa de servidor: abra `index.html` direto no navegador, ou sirva a past
 
 Procure por estes marcadores em `index.html` e troque pelos seus dados reais:
 
-- `[Ano]` — ano atual no footer
 - `[seu-email@exemplo.com]` / `[LinkedIn]` — footer
 - `R$ [valor]` — os 4 cartões de preço em `#pacotes`
 - `5500000000000` no link do WhatsApp — troque pelo seu número, formato `55DDDNÚMERO` sem símbolos
