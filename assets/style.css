@@ -88,8 +88,15 @@ nav{
   letter-spacing:0.01em;
 }
 .logo span{color:var(--brass);}
+.logo-mark-wrap{
+  background:var(--ink);
+  border-radius:8px;
+  padding:5px 10px;
+  display:inline-flex;
+  align-items:center;
+}
 .logo-mark{
-  height:30px;
+  height:26px;
   width:auto;
   display:block;
 }
