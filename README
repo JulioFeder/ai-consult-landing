@@ -19,7 +19,6 @@ Não precisa de servidor: abra `index.html` direto no navegador, ou sirva a past
 
 Procure por estes marcadores em `index.html` e troque pelos seus dados reais:
 
-- `[Seu Nome]` — nome do consultor/empresa (aparece no header e no footer)
 - `[Ano]` — ano atual no footer
 - `[seu-email@exemplo.com]` / `[LinkedIn]` — footer
 - `R$ [valor]` — os 4 cartões de preço em `#pacotes`
